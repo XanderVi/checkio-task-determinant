@@ -3,28 +3,38 @@
         <div class="output"></div>
         <div class="explanation center-exp"></div>
         <div class="answer"></div>
-        <div class="call"></div>
+        <div class="call"><span class="call-result"></span></div>
     </div>
 </script>
 
 <script type="text/template" id="template_tryit">
     <div class="tryit-content center-exp">
-        <table class="tool">
-            <tr>
+        <div class="tooltip">
+            Enter matrix's size
+        </div>
+        <form class="form-matrix center-exp">
+            <label>Rows: </label>
+            <input class="input-row" type="number" min="1" max="6" value="6">
+            <input class="btn" type="submit" value="Generate">
+        </form>
+        <table>
+            <tr style="display: none">
                 <td>
-                    <input type="text" value="test">
+                    Input:
                 </td>
                 <td>
-                    <button class="bn-check btn">Action</button>
+                    Your result:
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="checkio-result">
-                    Result:<br>
-                    <span class="checkio-result-in">&nbsp;</span>
-                </td>
-            </tr>
+                <td class="input-canvas">
 
+                </td>
+                <td class="output-canvas checkio-result">
+                    <span class="checkio-result-in"></span>
+                </td>
+            </tr>
         </table>
+
     </div>
 </script>

@@ -77,20 +77,53 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             }
             //Dont change the code before it
 
-            //Your code here about test explanation animation
-            //$content.find(".explanation").html("Something text for example");
-            //
-            //
-            //
-            //
-            //
+            var eCanvas = new DeterminantCanvas();
+            eCanvas.createCanvas($content.find(".explanation")[0], checkioInput);
+
 
 
             this_e.setAnimationHeight($content.height() + 60);
 
         });
 
-       
+        var $tryit;
+        var tCanvas;
+//
+        ext.set_console_process_ret(function (this_e, ret) {
+
+            $tryit.find(".checkio-result-in").html(ret);
+        });
+
+        ext.set_generate_animation_panel(function (this_e) {
+
+            $tryit = $(this_e.setHtmlTryIt(ext.get_template('tryit')));
+            tCanvas = new DeterminantCanvas();
+
+
+            $tryit.find('form').submit(function (e) {
+                e.preventDefault();
+                var row = parseInt($tryit.find(".input-row").val());
+                if (!row || isNaN(row) || row < 1 || row > 6) {
+                    row = 5;
+                }
+                $tryit.find(".input-row").val(row);
+                var data = [];
+                for (var i = 0; i < row; i++) {
+                    var temp = [];
+                    for (var j = 0; j < row; j++) {
+                        temp.push(Math.floor(Math.random() * 9) + 1);
+                    }
+                    data.push(temp);
+                }
+                tCanvas.removeCanvas();
+                $tryit.find("table tr:first").show();
+                tCanvas.createCanvas($tryit.find(".input-canvas")[0], data);
+                this_e.sendToConsoleCheckiO(data);
+                e.stopPropagation();
+                return false;
+            });
+
+        });
 
         var colorOrange4 = "#F0801A";
         var colorOrange3 = "#FA8F00";
@@ -108,10 +141,58 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
         var colorGrey1 = "#EBEDED";
 
         var colorWhite = "#FFFFFF";
-        //Your Additional functions or objects inside scope
-        //
-        //
-        //
+
+
+        function DeterminantCanvas() {
+            var zx = 10;
+            var zy = 10;
+            var cellSize = 30;
+            var cellN = [];
+            var fullSize = [];
+
+            var colorDark = "#294270";
+            var attrBracket = {"stroke": colorDark, "stroke-width": 3};
+            var attrNumber = {"stroke": colorDark, "font-family": "Verdana", "font-size": cellSize * 0.6};
+            var attrSup = {"stroke": colorDark, "font-family": "Verdana", "font-size": cellSize * 0.35, "opacity": 0};
+
+            var paper;
+            var numberSet;
+            var letterA;
+            var leftBracket;
+            var rightBracket;
+
+            this.removeCanvas = function () {
+                if (paper) {
+                    paper.remove();
+                }
+            };
+
+            this.createCanvas = function (dom, matrix) {
+                cellN = matrix.length;
+
+                fullSize = [zx * 2 + cellN * cellSize, zy * 2 + cellN * cellSize];
+                paper = Raphael(dom, fullSize[0], fullSize[1], 0, 0);
+                numberSet = paper.set();
+
+//                if (!shortCanvas) {
+//                    letterA = paper.text(zx / 2, zy + cellSize * cellN[1] / 2, "A").attr(attrNumber);
+//                }
+                leftBracket = paper.path(
+                    "M" + zx + "," + zy + "V" + (zy + cellSize * cellN)).attr(attrBracket);
+                rightBracket = paper.path(
+                    "M" + (zx + cellN * cellSize) + "," + zy + "V" + (zy + cellSize * cellN)).attr(attrBracket);
+                for (var row = 0; row < matrix.length; row++) {
+                    for (var col = 0; col < matrix[0].length; col++) {
+                        numberSet.push(paper.text(
+                            zx + cellSize * col + cellSize / 2,
+                            zy + cellSize * row + cellSize / 2,
+                            matrix[row][col]
+                        ).attr(attrNumber));
+                    }
+                }
+            };
+
+        }
 
 
     }
