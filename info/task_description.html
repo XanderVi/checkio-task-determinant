@@ -1,7 +1,7 @@
 <p>In linear algebra, the determinant is a value associated with a square
     matrix. It can be computed from the entries of the matrix by a specific
-    arithmetic expression, while other ways to determine its value exist as
-    well.
+    arithmetic expression (There are other ways to determine its value as
+    well.)
 </p>
 <p>
     The determinant of a matrix <em>A</em> is denoted <em>det(A)</em>, <em>det A</em>, or <em>|A|</em>. In the
@@ -14,15 +14,15 @@
     There are various ways to define the determinant of a square matrix <em>A</em>, i.e.
     one with the same number of rows and columns. Perhaps the most natural way
     is expressed in terms of the columns of the matrix. If we write an <em>n×n</em>
-    matrix in terms of its column vectors
+    matrix in terms of its column vectors:
     </p>
 <pre>A = [a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>]
 
 </pre>
 <p>
 
-    where the are vectors of size n, then the determinant of A is defined so
-    that
+    Where there are vectors of size n, then the determinant of A is defined so
+    that:
     </p>
 <pre>det[a<sub>1</sub>, ..., b*a<sub>j</sub>+c*v, ..., a<sub>n</sub>] = b*det(A)+c*det[a<sub>1</sub>, ..., v, ..., a<sub>n</sub>]
 det[a<sub>1</sub>, ..., a<sub>j</sub>, a<sub>j+1</sub>, ..., a<sub>n</sub>] = -det[a<sub>1</sub>, ..., a<sub>j+1</sub>, a<sub>j</sub>, ..., a<sub>n</sub>]
@@ -31,7 +31,7 @@ det(I) = 1
 </pre>
 <p>
 
-    where <em>b</em> and <em>c</em> are scalars, <em>v</em> is any vector of size <em>n</em> and <em></em> is the identity
+    Where <em>b</em> and <em>c</em> are scalars, <em>v</em> is any vector of size <em>n</em> and <em></em> is the identity
     matrix of size <em>n</em>. These properties state that the determinant is an
     alternating multilinear function of the columns, and they suffice to
     uniquely calculate the determinant of any square matrix. Provided the
@@ -47,16 +47,16 @@ det(I) = 1
     cases.
 </p>
 
-<p>More information about determinant you can find at
+<p>For more information about the determinant visit
     <a href="http://en.wikipedia.org/wiki/Determinant">Wikipedia</a></p>
 
 
 <p>
-    <strong>Input: </strong> A square matrix. A list of lists with integers.
+    <strong>Input: </strong> A square matrix as a list of lists with integers.
 </p>
 
 <p>
-    <strong>Output: </strong> A determinant of the matrix. An integer.
+    <strong>Output: </strong> A determinant of the matrix as an integer.
 </p>
 
 <div class="for_info_only">
