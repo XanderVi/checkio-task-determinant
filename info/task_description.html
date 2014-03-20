@@ -1,19 +1,20 @@
-<p>In linear algebra, the determinant is a value associated with a square
+<p>
+    In linear algebra, the determinant is a value associated with a square
     matrix. It can be computed from the entries of the matrix by a specific
     arithmetic expression (There are other ways to determine its value as
     well.)
 </p>
 <p>
-    The determinant of a matrix <em>A</em> is denoted <em>det(A)</em>, <em>det A</em>, or <em>|A|</em>. In the
-    case where the matrix entries are written out in full, the determinant is
+    The determinant of a matrix <strong>A</strong> is denoted <strong>det(A)</strong>, <strong>det A</strong>, or <strong>|A|</strong>.
+    In the case where the matrix entries are written out in full, the determinant is
     denoted by surrounding the matrix entries by vertical bars instead of the
     brackets or parentheses of the matrix.
 
 </p>
 <p>
-    There are various ways to define the determinant of a square matrix <em>A</em>, i.e.
+    There are various ways to define the determinant of a square matrix <strong>A</strong>, i.e.
     one with the same number of rows and columns. Perhaps the most natural way
-    is expressed in terms of the columns of the matrix. If we write an <em>n×n</em>
+    is expressed in terms of the columns of the matrix. If we write an <strong>N×N</strong>
     matrix in terms of its column vectors:
     </p>
 <pre>A = [a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>]
@@ -31,17 +32,17 @@ det(I) = 1
 </pre>
 <p>
 
-    Where <em>b</em> and <em>c</em> are scalars, <em>v</em> is any vector of size <em>n</em> and <em></em> is the identity
-    matrix of size <em>n</em>. These properties state that the determinant is an
+    Where <strong>b</strong> and <strong>c</strong> are scalars, <strong>v</strong> is any vector of size <strong>N</strong> and is the identity
+    matrix of size <strong>N</strong>. These properties state that the determinant is an
     alternating multilinear function of the columns, and they suffice to
     uniquely calculate the determinant of any square matrix. Provided the
     underlying scalars form a field (more generally, a commutative ring with
     unity).
     Equivalently, the determinant can be expressed as a sum of products of
-    entries of the matrix where each product has <em>n</em> terms and the coefficient of
+    entries of the matrix where each product has <strong>N</strong> terms and the coefficient of
     each product is −1 or 1 or 0 according to a given rule: it is a polynomial
     expression of the matrix entries. This expression grows rapidly with the
-    size of the matrix (an <em>n×n</em> matrix contributes <em>n!</em> terms), so it will first
+    size of the matrix (an <strong>NxN</strong> matrix contributes <strong>N!</strong> terms), so it will first
     be given explicitly for the case of 2×2 matrices and 3×3 matrices,
     followed by the rule for arbitrary size matrices, which subsumes these two
     cases.
@@ -56,7 +57,7 @@ det(I) = 1
 </p>
 
 <p>
-    <strong>Output: </strong> A determinant of the matrix as an integer.
+    <strong>Output: </strong> The determinant of the matrix as an integer.
 </p>
 
 <div class="for_info_only">
@@ -73,5 +74,13 @@ checkio([[1, 3, 2],
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    Mathematical software.
+    The determinant is a basis for linear algebra and mathematical software.
+    And linear algebra is used in vector graphics or for many optimisation problems (a system of linear equations).
+    Also determinant can be useful in cryptography (Videocipher) and geometry (Ex: test for Collinear Points)
+</p>
+
+
+<p>
+    <strong>Precondition:</strong>0 < N &le; 5<br>
+    &forall; x ∈ A : 0 &le; x < 10
 </p>
