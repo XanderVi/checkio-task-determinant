@@ -39,7 +39,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 return false;
             }
 
-            var checkioInput = data.in;
+            var checkioInput = data.in || [[4, 3], [6, 3]];
 
             if (data.error) {
                 $content.find('.call').html('Fail: checkio(' + JSON.stringify(checkioInput) + ')');
@@ -111,7 +111,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 for (var i = 0; i < row; i++) {
                     var temp = [];
                     for (var j = 0; j < row; j++) {
-                        temp.push(Math.floor(Math.random() * 9) + 1);
+                        temp.push(Math.floor(Math.random() * 10));
                     }
                     data.push(temp);
                 }
