@@ -51,11 +51,21 @@ det(I) = 1
     <p>
         <strong>Примеры:</strong>
     </p>
-    <pre class="brush: python">checkio([[4,3], [6,3]]) == -6
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: javascript">
+determinant([[4,3], [6,3]]) == -6
 
-checkio([[1, 3, 2],
+determinant([[1, 3, 2],
          [1, 1, 4],
          [2, 2, 1]]) == 14</pre>
+{% else %}
+<pre class="brush: python">
+determinant([[4,3], [6,3]]) == -6
+
+determinant([[1, 3, 2],
+         [1, 1, 4],
+         [2, 2, 1]]) == 14</pre>
+{% endif %}
 </div>
 
 <p class="for_info_only">
